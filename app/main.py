@@ -70,6 +70,10 @@ def padronizar_email(nome: str) -> str:
     
     return f"{email}@empresa.com.br"
 
+@app.get("/")
+async def bem_vindo():
+    return {"message": "Bem-vindo ao Sistema de Padronização de Nomes e Emails"}
+  
 @app.post("/usuarios/")
 async def criar_usuario(usuario: UsuarioBase):
     nome_padronizado = padronizar_nome(usuario.nome)
